@@ -24,10 +24,14 @@ RUN apk --no-cache upgrade apk-tools
 # Ensuring that we update/upgrade before installing openssl, to mitigate CVE-2021-3711 and CVE-2021-3712
 RUN apk update && apk upgrade && apk --no-cache add openssl
 
-# Add glibc for running oc command 
+# Add glibc for running oc command
 RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
 RUN apk add gcompat
 RUN apk add jq
+
+# Add nonroot user and group
+RUN addgroup -S nonroot && adduser -u 65532 -S nonroot -G nonroot
+USER 65532
 
 ENV PATH=$PATH:/usr/local/mount-from-host/bin
 
