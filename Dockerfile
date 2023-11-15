@@ -29,10 +29,6 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/s
 RUN apk add gcompat
 RUN apk add jq
 
-# Add nonroot user and group
-RUN addgroup -S nonroot && adduser -u 65532 -S nonroot -G nonroot
-USER 65532
-
 ENV PATH=$PATH:/usr/local/mount-from-host/bin
 
 COPY --from=build /go/bin/kube-bench /usr/local/bin/kube-bench
