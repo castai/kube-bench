@@ -9,7 +9,7 @@ groups:
     text: "Image Registry and Image Scanning"
     checks:
       - id: 5.1.1
-        text: "Ensure Image Vulnerability Scanning using Amazon ECR image scanning or a third-party provider (Manual)"
+        text: "Ensure Image Vulnerability Scanning using Amazon ECR image scanning or a third-party provider (Automated)"
         type: "manual"
         remediation: |
           To utilize AWS ECR for Image scanning please follow the steps below:
@@ -79,7 +79,7 @@ groups:
         scored: false
 
   - id: 5.3
-    text: "AWS Key Management Service (KMS)"
+    text: "AWS EKS Key Management Service (KMS)"
     checks:
       - id: 5.3.1
         text: "Ensure Kubernetes Secrets are encrypted using Customer Master Keys (CMKs) managed in AWS KMS (Manual)"
@@ -95,25 +95,25 @@ groups:
     text: "Cluster Networking"
     checks:
       - id: 5.4.1
-        text: "Restrict Access to the Control Plane Endpoint (Manual)"
+        text: "Restrict Access to the Control Plane Endpoint (Automated)"
         type: "manual"
         remediation: "No remediation"
         scored: false
 
       - id: 5.4.2
-        text: "Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Manual)"
+        text: "Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Automated)"
         type: "manual"
         remediation: "No remediation"
         scored: false
 
       - id: 5.4.3
-        text: "Ensure clusters are created with Private Nodes (Manual)"
+        text: "Ensure clusters are created with Private Nodes (Automated)"
         type: "manual"
         remediation: "No remediation"
         scored: false
 
       - id: 5.4.4
-        text: "Ensure Network Policy is Enabled and set as appropriate (Manual)"
+        text: "Ensure Network Policy is Enabled and set as appropriate (Automated)"
         type: "manual"
         remediation: "No remediation"
         scored: false
@@ -129,7 +129,7 @@ groups:
     text: "Authentication and Authorization"
     checks:
       - id: 5.5.1
-        text: "Manage Kubernetes RBAC users with AWS IAM Authenticator for Kubernetes (Manual)"
+        text: "Manage Kubernetes RBAC users with AWS IAM Authenticator for Kubernetes or Upgrade to AWS CLI v1.16.156 or greater (Manual)"
         type: "manual"
         remediation: |
           Refer to the 'Managing users or IAM roles for your cluster' in Amazon EKS documentation.
